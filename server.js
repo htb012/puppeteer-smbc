@@ -44,14 +44,11 @@ const PASSWORD = process.env.PASSWORD;
     // redirect to balance-page then get balance
     await page.goto('https://direct3.smbc.co.jp/servlet/com.smbc.SUPRedirectServlet')
     const balance = await page.$eval('.fRight', elm => elm.textContent.replace(/\s/g, ''))
-          .then(res => {
-              console.log(res)
-              console.log(`Your current balance is ${balance}`)
-          })
           .catch(async err => {
               console.log(err)
               process.exit(1)
           })
+    console.log(`Your current balance is ${balance}`)
 
     // close browser
     await browser.close()
