@@ -8,7 +8,7 @@
 
 ### Construct environment
 ```shell
-$ mkdir puppeteer-smbc
+$ git clone https://github.com/embokoir/puppeteer-smbc.git
 $ cd puppeteer-smbc
 $ npm install
 $ touch .env
