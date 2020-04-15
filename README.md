@@ -1,8 +1,7 @@
-# puppeteer-smbc
+# About
 
-## About
-- Automatically Log-in to your SMBC-InternetBanking Account
-- Get your current balance
+- 三井住友銀行インターネットバンキングSMBCダイレクト口座に自動ログインし、口座残高を取得
+- 参考：[Qiita 三井住友銀行口座の残高を自動取得する（Puppeteerで）](https://qiita.com/embokoir/items/e4bd329c9ca9f57d631e)
 
 ## Usage
 
