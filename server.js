@@ -7,6 +7,12 @@ const app = express()
 const port = 3000
 
 app.get('/balance', async (req, res) => {
+  const client = req.query.client
+  if (client === 'gas') {
+    res.send('Glitch woke up')
+    return
+  }
+
   const balance = await fetchBalance()
   res.send(balance)
 })
