@@ -1,12 +1,23 @@
 const puppeteer = require('puppeteer')
+const express = require('express')
 const dotenv = require('dotenv')
 dotenv.config()
 
+const app = express()
+const port = 3000
+
+app.get('/', async (req, res) => {
+  const balance = await fetchBalance()
+  res.send(balance)
+})
+
+app.listen(port, () => console.log(`Listening at ${port}...`))
+
 const BRANCH_CODE = process.env.BRANCH_CODE
 const ACCOUNT_NUMBER = process.env.ACCOUNT_NUMBER
-const PASSWORD = process.env.PASSWORD;
+const PASSWORD = process.env.PASSWORD
 
-(async () => {
+async function fetchBalance()  {
     // validate .env
     if (!BRANCH_CODE || !ACCOUNT_NUMBER || !PASSWORD) {
         console.log('Invalid Try. Make sure to create a file ".env" and write your BRANCH_CODE / ACCOUNT_NUMBER / PASSWORD')
@@ -16,7 +27,7 @@ const PASSWORD = process.env.PASSWORD;
     // launch browser
     console.log('launching browser...')
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: ['--no-sandbox']
     })
 
@@ -52,4 +63,5 @@ const PASSWORD = process.env.PASSWORD;
 
     // close browser
     await browser.close()
-})()
+  return balance
+}
