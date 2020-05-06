@@ -9,6 +9,7 @@ const port = 3000
 app.get('/balance', async (req, res) => {
   const client = req.query.client
   if (client === 'gas') {
+    console.log('gas came')
     res.send('Glitch woke up')
     return
   }
