@@ -25,3 +25,5 @@ PASSWORD=0000 # your password (4 digits)
 ```
 $ npm run start
 ```
+
+Access `localhost://3000`
