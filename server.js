@@ -6,7 +6,7 @@ dotenv.config()
 const app = express()
 const port = 3000
 
-app.get('/', async (req, res) => {
+app.get('/balance', async (req, res) => {
   const balance = await fetchBalance()
   res.send(balance)
 })
