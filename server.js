@@ -48,8 +48,9 @@ async function fetchBalance()  {
     page.waitForNavigation({ waitUntil: 'networkidle0' }),
     page.click('input[type=submit]')
   ]).catch(async err => {
+    console.log('ログイン失敗')
     console.log(err.response)
-    process.exit(1)
+    return '!warning ログイン失敗'
   })
 
   // redirect to balance-page then get balance
@@ -57,7 +58,7 @@ async function fetchBalance()  {
   const balance = await page.$eval('.fRight', elm => elm.textContent.replace(/\s/g, ''))
         .catch(async err => {
           console.log(err)
-          process.exit(1)
+          return '残高取得失敗'
         })
   console.log(`Your current balance is ${balance}`)
 
